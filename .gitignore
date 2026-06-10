@@ -1,0 +1,12 @@
+node_modules/
+dist/
+docs/
+.env
+.env.local
+.env.*.local
+*.log
+.DS_Store
+coverage/
+*.tsbuildinfo
+
+test/fixtures/real/
