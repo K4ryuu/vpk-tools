@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "vpk-ts",
+      "name": "vpk-tools",
       "devDependencies": {
         "@ianlucas/depot-downloader": "^3.4.0",
         "@stylistic/eslint-plugin": "^5.10.0",

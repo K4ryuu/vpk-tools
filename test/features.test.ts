@@ -70,7 +70,7 @@ describe("preload writing", () => {
   });
 
   it("preloaded files survive chunked writes", () => {
-    const dir = mkdtempSync(join(tmpdir(), "vpk-ts-pre-"));
+    const dir = mkdtempSync(join(tmpdir(), "vpk-tools-pre-"));
     try {
       const data = Buffer.alloc(4096, 0x42);
       new VpkWriter().addFile("a/pre.bin", data, { preload: 100 }).addFile("a/plain.bin", data).write(join(dir, "pre_dir.vpk"), { chunkSize: 1024 });
@@ -149,7 +149,7 @@ describe("diffVpks", () => {
 
 describe("available()", () => {
   it("reports readability per file on a partial chunk set", () => {
-    const dir = mkdtempSync(join(tmpdir(), "vpk-ts-avail-"));
+    const dir = mkdtempSync(join(tmpdir(), "vpk-tools-avail-"));
 
     try {
       new VpkWriter()

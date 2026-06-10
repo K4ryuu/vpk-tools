@@ -82,7 +82,7 @@ describe("malformed input handling", () => {
 
 describe("resource cleanup", () => {
   it("does not leak file descriptors when open() fails", () => {
-    const garbage = join(tmpdir(), "vpk-ts-not-a-vpk.bin");
+    const garbage = join(tmpdir(), "vpk-tools-not-a-vpk.bin");
     writeFileSync(garbage, "definitely not a vpk file at all");
 
     const openFds = (): number => readdirSync("/dev/fd").length;
@@ -97,7 +97,7 @@ describe("resource cleanup", () => {
 
 describe("chunk archive mixup", () => {
   it("explains that a _NNN.vpk is a chunk, not a dir file", () => {
-    const dir = mkdtempSync(join(tmpdir(), "vpk-ts-chunk-"));
+    const dir = mkdtempSync(join(tmpdir(), "vpk-tools-chunk-"));
 
     try {
       new VpkWriter().addFile("a.txt", Buffer.alloc(2048, 1)).write(join(dir, "pak_dir.vpk"), { chunkSize: 1024 });

@@ -55,7 +55,7 @@ describe("write -> read roundtrip", () => {
   });
 
   it("roundtrips a multi-chunk v2 VPK on disk", () => {
-    const dir = mkdtempSync(join(tmpdir(), "vpk-ts-"));
+    const dir = mkdtempSync(join(tmpdir(), "vpk-tools-"));
     try {
       const target = join(dir, "test_dir.vpk");
       // small chunk size forces several archives
@@ -77,7 +77,7 @@ describe("write -> read roundtrip", () => {
   });
 
   it("reports skipped files when chunk archives are missing", () => {
-    const dir = mkdtempSync(join(tmpdir(), "vpk-ts-"));
+    const dir = mkdtempSync(join(tmpdir(), "vpk-tools-"));
     try {
       const target = join(dir, "test_dir.vpk");
       fillWriter(2).write(target, { chunkSize: 1024 });
@@ -95,7 +95,7 @@ describe("write -> read roundtrip", () => {
   });
 
   it("roundtrips addDirectory from a real folder", () => {
-    const dir = mkdtempSync(join(tmpdir(), "vpk-ts-src-"));
+    const dir = mkdtempSync(join(tmpdir(), "vpk-tools-src-"));
     try {
       const writer = new VpkWriter();
       const out = join(dir, "out");

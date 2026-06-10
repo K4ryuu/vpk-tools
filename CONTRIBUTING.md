@@ -5,7 +5,7 @@ Hey, thanks for wanting to contribute! Here's what you need to know.
 ## Setup
 
 ```bash
-git clone https://github.com/K4ryuu/vpk-ts.git
+git clone https://github.com/K4ryuu/vpk-tools.git
 cd vpk-tools
 bun install   # or pnpm/npm, whatever you prefer
 ```

@@ -3,11 +3,11 @@
 <!-- BADGES -->
 <div align="center">
 
-![CI](https://img.shields.io/github/actions/workflow/status/K4ryuu/vpk-ts/ci.yml?style=for-the-badge&label=CI)
+![CI](https://img.shields.io/github/actions/workflow/status/K4ryuu/vpk-tools/ci.yml?style=for-the-badge&label=CI)
 ![NPM Version](https://img.shields.io/npm/v/vpk-tools?style=for-the-badge&label=NPM)
 ![NPM Downloads](https://img.shields.io/npm/dm/vpk-tools?style=for-the-badge&label=Downloads)
-![GitHub License](https://img.shields.io/github/license/K4ryuu/vpk-ts?style=for-the-badge)
-![GitHub Issues](https://img.shields.io/github/issues/K4ryuu/vpk-ts?style=for-the-badge)
+![GitHub License](https://img.shields.io/github/license/K4ryuu/vpk-tools?style=for-the-badge)
+![GitHub Issues](https://img.shields.io/github/issues/K4ryuu/vpk-tools?style=for-the-badge)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![Bundle Size](https://img.shields.io/bundlephobia/minzip/vpk-tools?style=for-the-badge&label=Bundle%20Size)
 
@@ -25,7 +25,7 @@
     <br />
     <a href="#installation"><strong>Get Started »</strong></a>
     ·
-    <a href="https://github.com/K4ryuu/vpk-ts/tree/main/examples">View Examples</a>
+    <a href="https://github.com/K4ryuu/vpk-tools/tree/main/examples">View Examples</a>
   </p>
 </div>
 

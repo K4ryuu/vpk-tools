@@ -81,7 +81,7 @@ describe("chunk alignment", () => {
   });
 
   it("aligns offsets inside chunk archives", () => {
-    const dir = mkdtempSync(join(tmpdir(), "vpk-ts-align-"));
+    const dir = mkdtempSync(join(tmpdir(), "vpk-tools-align-"));
     try {
       const target = join(dir, "aligned_dir.vpk");
       sampleWriter().write(target, { chunkSize: 64 * 1024, align: 512 });
@@ -116,7 +116,7 @@ describe("AsyncVpkReader", () => {
   };
 
   it("matches the sync reader on a chunked archive with preload and signature", async () => {
-    const dir = mkdtempSync(join(tmpdir(), "vpk-ts-async-"));
+    const dir = mkdtempSync(join(tmpdir(), "vpk-tools-async-"));
     try {
       const target = join(dir, "test_dir.vpk");
       sampleWriter().addFile("cfg/pre.cfg", "preloaded data here", { preload: 8 }).write(target, { chunkSize: 1024, sign: { privateKey } });
@@ -147,8 +147,8 @@ describe("AsyncVpkReader", () => {
   });
 
   it("throws on missing files and missing paths", async () => {
-    expect(AsyncVpkReader.open("/tmp/definitely-not-a-vpk-ts-file.vpk")).rejects.toThrow();
-    const dir = mkdtempSync(join(tmpdir(), "vpk-ts-async2-"));
+    expect(AsyncVpkReader.open("/tmp/definitely-not-a-vpk-tools-file.vpk")).rejects.toThrow();
+    const dir = mkdtempSync(join(tmpdir(), "vpk-tools-async2-"));
     try {
       const target = join(dir, "x.vpk");
       sampleWriter().write(target);
@@ -161,7 +161,7 @@ describe("AsyncVpkReader", () => {
   });
 
   it("writeAsync produces the same bytes as write", async () => {
-    const dir = mkdtempSync(join(tmpdir(), "vpk-ts-wasync-"));
+    const dir = mkdtempSync(join(tmpdir(), "vpk-tools-wasync-"));
     try {
       const a = join(dir, "a_dir.vpk");
       const b = join(dir, "b_dir.vpk");
