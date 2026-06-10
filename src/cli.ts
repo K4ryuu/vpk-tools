@@ -21,18 +21,18 @@ function getPackageVersion(): string {
 
 function printHelp(): void {
   console.log(`
-\x1b[36mvpk-ts CLI\x1b[0m - Valve VPK archive reader/writer
+\x1b[36mvpk-tools CLI\x1b[0m - Valve VPK archive reader/writer
 
 \x1b[1mUsage:\x1b[0m
-  vpk-ts list <archive_dir.vpk> [filters] [--detail]
-  vpk-ts extract <archive_dir.vpk> [filters] [-o <dir>] [--no-dirs]
-  vpk-ts cat <archive_dir.vpk> <path...>
-  vpk-ts create <inputDir> -o <output.vpk> [--version 1|2] [--chunk-size <MB>] [--align <bytes>] [--sign <key.pem>]
-  vpk-ts add <archive.vpk> <file...> [--prefix <dir/>] [--chunk-size <MB>]
-  vpk-ts remove <archive.vpk> <path...> [--chunk-size <MB>]
-  vpk-ts diff <old_dir.vpk> <new_dir.vpk> [--detail]
-  vpk-ts verify <archive_dir.vpk>
-  vpk-ts info <archive_dir.vpk>
+  vpk-tools list <archive_dir.vpk> [filters] [--detail]
+  vpk-tools extract <archive_dir.vpk> [filters] [-o <dir>] [--no-dirs]
+  vpk-tools cat <archive_dir.vpk> <path...>
+  vpk-tools create <inputDir> -o <output.vpk> [--version 1|2] [--chunk-size <MB>] [--align <bytes>] [--sign <key.pem>]
+  vpk-tools add <archive.vpk> <file...> [--prefix <dir/>] [--chunk-size <MB>]
+  vpk-tools remove <archive.vpk> <path...> [--chunk-size <MB>]
+  vpk-tools diff <old_dir.vpk> <new_dir.vpk> [--detail]
+  vpk-tools verify <archive_dir.vpk>
+  vpk-tools info <archive_dir.vpk>
 
 \x1b[1mFilters:\x1b[0m
   -f, --filter <pattern>  Wildcard on the full path (* and ?), plain text matches as substring
@@ -52,11 +52,11 @@ function printHelp(): void {
   -h, --help             Show this help menu
 
 \x1b[1mExamples:\x1b[0m
-  vpk-ts list pak01_dir.vpk -f "scripts/*" --detail
-  vpk-ts extract pak01_dir.vpk --re "\\.(vsnd|vtex)_c$" -o ./out
-  vpk-ts cat pak01_dir.vpk scripts/items/items_game.txt | less
-  vpk-ts add mymod.vpk newmap.bin --prefix maps/
-  vpk-ts diff old/pak01_dir.vpk new/pak01_dir.vpk --detail
+  vpk-tools list pak01_dir.vpk -f "scripts/*" --detail
+  vpk-tools extract pak01_dir.vpk --re "\\.(vsnd|vtex)_c$" -o ./out
+  vpk-tools cat pak01_dir.vpk scripts/items/items_game.txt | less
+  vpk-tools add mymod.vpk newmap.bin --prefix maps/
+  vpk-tools diff old/pak01_dir.vpk new/pak01_dir.vpk --detail
 `);
 }
 

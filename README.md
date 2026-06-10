@@ -4,19 +4,19 @@
 <div align="center">
 
 ![CI](https://img.shields.io/github/actions/workflow/status/K4ryuu/vpk-ts/ci.yml?style=for-the-badge&label=CI)
-![NPM Version](https://img.shields.io/npm/v/vpk-ts?style=for-the-badge&label=NPM)
-![NPM Downloads](https://img.shields.io/npm/dm/vpk-ts?style=for-the-badge&label=Downloads)
+![NPM Version](https://img.shields.io/npm/v/vpk-tools?style=for-the-badge&label=NPM)
+![NPM Downloads](https://img.shields.io/npm/dm/vpk-tools?style=for-the-badge&label=Downloads)
 ![GitHub License](https://img.shields.io/github/license/K4ryuu/vpk-ts?style=for-the-badge)
 ![GitHub Issues](https://img.shields.io/github/issues/K4ryuu/vpk-ts?style=for-the-badge)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-![Bundle Size](https://img.shields.io/bundlephobia/minzip/vpk-ts?style=for-the-badge&label=Bundle%20Size)
+![Bundle Size](https://img.shields.io/bundlephobia/minzip/vpk-tools?style=for-the-badge&label=Bundle%20Size)
 
 </div>
 
 <!-- PROJECT TITLE -->
 <br />
 <div align="center">
-  <h1 align="center">vpk-ts</h1>
+  <h1 align="center">vpk-tools</h1>
   <p align="center">
     Valve VPK archive reader & writer for Node.js and Bun
     <br />
@@ -33,7 +33,7 @@
 
 I run and build tooling for CS2 servers, and kept needing to peek into or repack VPK archives from JavaScript - asset syncing, content validation, build pipelines. The existing options are either dead Python ports or libraries that only read v1. So here's a modern one.
 
-`vpk-ts` reads and writes Valve Pak (VPK) archives used by Source and Source 2 games - CS2, Dota 2, TF2, HL:Alyx, Portal 2 and friends. It runs on Node.js and Bun with no runtime dependencies.
+`vpk-tools` reads and writes Valve Pak (VPK) archives used by Source and Source 2 games - CS2, Dota 2, TF2, HL:Alyx, Portal 2 and friends. It runs on Node.js and Bun with no runtime dependencies.
 
 ## Why this package is special
 
@@ -51,10 +51,10 @@ I run and build tooling for CS2 servers, and kept needing to peek into or repack
 
 ```bash
 # bun
-bun add vpk-ts
+bun add vpk-tools
 
 # npm
-npm install vpk-ts
+npm install vpk-tools
 ```
 
 ## Usage
@@ -62,7 +62,7 @@ npm install vpk-ts
 ### Reading
 
 ```ts
-import { VpkReader } from "vpk-ts";
+import { VpkReader } from "vpk-tools";
 
 const vpk = VpkReader.open("game/csgo/pak01_dir.vpk");
 
@@ -86,7 +86,7 @@ vpk.close();
 
 ```ts
 import { readFileSync } from "fs";
-import { VpkWriter } from "vpk-ts";
+import { VpkWriter } from "vpk-tools";
 
 const writer = new VpkWriter(); // v2 by default
 writer.addFile("scripts/readme.txt", "hello");
@@ -113,7 +113,7 @@ writer.write("myaddon_dir.vpk", {
 ### Async
 
 ```ts
-import { AsyncVpkReader } from "vpk-ts";
+import { AsyncVpkReader } from "vpk-tools";
 
 // same API as VpkReader, but every data read is a promise
 const vpk = await AsyncVpkReader.open("pak01_dir.vpk");
@@ -125,7 +125,7 @@ await vpk.close();
 ### Editing & diffing
 
 ```ts
-import { VpkReader, VpkWriter, diffVpks } from "vpk-ts";
+import { VpkReader, VpkWriter, diffVpks } from "vpk-tools";
 
 // edit: seed a writer from an existing archive, tweak, write back
 const source = VpkReader.open("mymod.vpk");
@@ -142,7 +142,7 @@ console.log(diff.added, diff.removed, diff.changed);
 ### In-memory archives
 
 ```ts
-import { VpkReader, VpkWriter } from "vpk-ts";
+import { VpkReader, VpkWriter } from "vpk-tools";
 
 const buffer = new VpkWriter().addFile("a.txt", "alpha").toBuffer();
 const vpk = VpkReader.fromBuffer(buffer);
@@ -151,16 +151,16 @@ const vpk = VpkReader.fromBuffer(buffer);
 ## CLI
 
 ```bash
-vpk-ts list pak01_dir.vpk -f "scripts/*" --detail
-vpk-ts extract pak01_dir.vpk --re "\.(vsnd|vtex)_c$" -o ./out
-vpk-ts extract pak01_dir.vpk --name "*.cfg" --no-dirs -o ./flat
-vpk-ts cat pak01_dir.vpk scripts/items/items_game.txt | less
-vpk-ts create ./mymod -o mymod_dir.vpk --chunk-size 100 --align 4096 --sign private.pem
-vpk-ts add mymod.vpk newmap.bin --prefix maps/
-vpk-ts remove mymod.vpk maps/old.bin
-vpk-ts diff old/pak01_dir.vpk new/pak01_dir.vpk --detail
-vpk-ts verify pak01_dir.vpk
-vpk-ts info pak01_dir.vpk
+vpk-tools list pak01_dir.vpk -f "scripts/*" --detail
+vpk-tools extract pak01_dir.vpk --re "\.(vsnd|vtex)_c$" -o ./out
+vpk-tools extract pak01_dir.vpk --name "*.cfg" --no-dirs -o ./flat
+vpk-tools cat pak01_dir.vpk scripts/items/items_game.txt | less
+vpk-tools create ./mymod -o mymod_dir.vpk --chunk-size 100 --align 4096 --sign private.pem
+vpk-tools add mymod.vpk newmap.bin --prefix maps/
+vpk-tools remove mymod.vpk maps/old.bin
+vpk-tools diff old/pak01_dir.vpk new/pak01_dir.vpk --detail
+vpk-tools verify pak01_dir.vpk
+vpk-tools info pak01_dir.vpk
 ```
 
 Filters: `-f` wildcard (or plain substring), `--re` regex, `--name` filename wildcard, `-v` inverts.
