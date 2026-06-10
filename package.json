@@ -1,6 +1,6 @@
 {
    "name": "vpk-tools",
-   "version": "1.0.1",
+   "version": "1.0.2",
    "type": "module",
    "description": "Zero-dependency Valve VPK archive reader/writer for Node.js and Bun. Full v1/v2 support with CRC32 + MD5 verification, multi-chunk archives and a CLI.",
    "main": "dist/index.cjs",
